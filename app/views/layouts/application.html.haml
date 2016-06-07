@@ -8,7 +8,11 @@
   %body
     %header
       .header_inner
-        =link_to "FileCabinet", root_path, id: "logo"
+        -if user_signed_in?
+          =link_to "FileCabinet", docs_path, id: "logo"
+
+        -else
+          =link_to "FileCabinet", root_path, id: "logo"
 
         %nav
           -if user_signed_in?
